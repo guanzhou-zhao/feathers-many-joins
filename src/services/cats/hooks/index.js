@@ -16,8 +16,18 @@ exports.before = {
 
 exports.after = {
   all: [],
-  find: [],
-  get: [],
+  find: [
+   hooks.populate('kittens', {
+    service: 'kittens-by-cat-id',
+    field: 'id'
+  })
+  ],
+  get: [
+   hooks.populate('kittens', {
+    service: 'kittens-by-cat-id',
+    field: 'id'
+  })
+  ],
   create: [],
   update: [],
   patch: [],
